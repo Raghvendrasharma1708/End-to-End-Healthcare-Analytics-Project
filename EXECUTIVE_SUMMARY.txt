@@ -1,0 +1,37 @@
+
+HEALTHCARE READMISSION PREDICTION — EXECUTIVE SUMMARY
+
+PROJECT OVERVIEW
+Objective: Predict 30-day hospital readmissions for diabetes patients
+Dataset: Diabetes 130-US Hospitals (1999-2008)
+Total Records: 101,763
+
+KEY FINDINGS
+1. Readmission rate: 11.16% (11,357 of 101,763 patients)
+2. Model comparison (Logistic Regression, Random Forest, XGBoost) — see comparison table
+3. Best model: XGBoost
+   - Recall: 56.85%
+   - ROC-AUC: 0.6526
+   - Accuracy: 64.59% (secondary metric — misleading alone given class imbalance)
+
+WHY XGBOOST, NOT JUST HIGHEST ACCURACY
+Accuracy favors the majority class (88.84% not readmitted), so a model can
+score well while missing most at-risk patients. Recall and ROC-AUC were
+prioritized instead, since a missed readmission (false negative) costs far
+more than an unnecessary follow-up (false positive).
+
+CONFUSION MATRIX — XGBoost
+Caught (TP): 1,291.0
+Missed (FN): 980.0
+False alarms (FP): 6,228.0
+
+BUSINESS IMPACT (hypothetical cost model)
+Assumptions: $15,000 per readmission, $1,000 per
+intervention, 70% intervention effectiveness
+Net benefit: $6,036,500
+
+LIMITATIONS
+ROC-AUC across all three models sits in a narrow 0.63–0.65 band, indicating
+the ceiling here is set by available features (demographics, utilization)
+rather than model choice. Richer clinical data — lab results, medication
+history detail — would likely yield larger gains than further model tuning.
