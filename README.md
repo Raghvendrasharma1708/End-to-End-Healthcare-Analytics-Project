@@ -59,7 +59,7 @@ ROC-AUC across all three models falls in a narrow 0.63–0.65 band, indicating t
 ## Repository Structure
 
 ```
-├── Capstone3_Healthcare_Analytics.ipynb   # Full analysis notebook
+├── Healthcare_Analytics_CaseStudy.ipynb   # Full analysis notebook
 ├── diabetic_data_cleaned.csv              # Cleaned dataset (post-processing)
 ├── visualizations/                        # Saved charts (EDA, model evaluation, dashboard)
 ├── EXECUTIVE_SUMMARY.txt                  # Generated summary report
